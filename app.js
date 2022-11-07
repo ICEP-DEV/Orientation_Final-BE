@@ -8,6 +8,7 @@ const app = express()
 const multer = require('multer');
 const mariadb = require('./connection');
 const cors = require('cors');
+const https = require('https');
 const fs = require('fs');
 
 app.use(cors({origin: '*'}));
@@ -22,6 +23,11 @@ app.use(function(req, res, next) {
     next();
 });
 
+const sslServer = https.createServer({
+    key: fs.readFileSync(path.join(__dirname, 'cert', 'key.pem')),
+    cert: fs.readFileSync(path.join(__dirname, 'cert', 'cert.pem')),
+}, app
+)
 
 //Publisize a folder
 app.use(express.static('public')); 
@@ -322,7 +328,7 @@ app.post('/uploadVideo', videoUpload.single('video'), (req, res) => {
 },handleErr) 
 
 
-app.listen(APP_PORT, () => {
+sslServer.listen(APP_PORT, () => {
   console.log("********************************************************");
   console.log("* DB: "+DATABASE()+":3306 DBname:'orientation_db_schema'    *");
   console.log("*           S3 Bucket(U/D) Amazon : by Cheyeza         *");

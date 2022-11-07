@@ -7,6 +7,10 @@ const app = express();
 const bodyParser = require('body-parser');
 //cross-origin
 const cors = require('cors');
+
+const https = require('https');
+const fs = require('fs');
+const path = require('path');
 //----------------------------------------------------------------------------------Stock Libraries
 //Student
 //--Test
@@ -63,6 +67,12 @@ app.use(function(req, res, next) {
     next();
 });
 
+const sslServer = https.createServer({
+    key: fs.readFileSync(path.join(__dirname, 'cert', 'key.pem')),
+    cert: fs.readFileSync(path.join(__dirname, 'cert', 'cert.pem')),
+}, app
+)
+
 app.get('/', (req, res) => { 
     res.send('Not a accessbled Address graph'); 
 });
@@ -104,7 +114,7 @@ app.use('/images', express.static('bin/images'));
 app.use('/videos', express.static('bin/videos'));
 
 
-app.listen(GRAPH_PORT, (e) => {
+sslServer.listen(GRAPH_PORT, (e) => {
     console.log("********************************************************");
     console.log("* DB: "+DATABASE()+":3306 DBname:'orientation_db_schema'    *");
     console.log("*    (Shezi)        Backend API REST     (Cheyeza)     *");
