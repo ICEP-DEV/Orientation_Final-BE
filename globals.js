@@ -5,8 +5,8 @@ const DATABASE_HOSTNAME = "localhost";
 //API PORTS
 const HOSTNAME = "mediahostseverip"
 const SOCKETIO_PORT = process.env.PORT || 2000;
-const GRAPH_PORT = process.env.PORT || 4242;
-const APP_PORT = process.env.PORT || 4242;
+const GRAPH_PORT = process.env.PORT || 3000;
+const APP_PORT = process.env.PORT || 3000;
 
 
 function DATABASE()
