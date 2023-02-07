@@ -132,6 +132,9 @@ app.use(express.static('public'));
 app.use('/images', express.static('bin/images'));
 app.use('/videos', express.static('bin/videos'));
 
+//Health check
+app.use('/healthcheck', require('./health'));
+
 app.get('/', (req, res) => { 
     res.send('Not a accessbled Address app'); 
 });
