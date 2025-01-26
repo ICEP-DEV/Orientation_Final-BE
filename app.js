@@ -328,7 +328,7 @@ app.post('/uploadVideo', videoUpload.single('video'), (req, res) => {
 },handleErr) 
 
 
-sslServer.listen(APP_PORT, () => {
+app.listen(APP_PORT, () => {
   console.log("********************************************************");
   console.log("* DB: "+DATABASE()+":3306 DBname:'orientation_db_schema'    *");
   console.log("*           S3 Bucket(U/D) Amazon : by Cheyeza         *");

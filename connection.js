@@ -6,7 +6,7 @@ const mariadb = mysql.createPool({
     host: DATABASE_HOSTNAME,
     user: USERNAME,
     password: PASSWORD,
-    database: 'orientation_db_schema'
+    database: 'dbmaster'
 })
 
 
