@@ -22,3 +22,21 @@
 ### -Retriving Users progress (16/04/2022)
 ### -Socket IO for Videos (17/04/2022)
 # 100% Done
+
+
+setEnvIf X-Forwarded-proto https HTTPS=on
+<VirtualHost _default_:80>
+    DocumentRoot "/opt/bitnami/apache/htdocs"
+    <Directory "/opt/bitnami/apache/htdocs">
+      Optionas Indexes FollowSymLinks
+      AllowOverride All
+      Require all granted
+    </Directory>
+    #Error Documents
+    ErrorDocument 503 /503.html
+  </VirtualHost>
+ Include "/opt/bitnami/conf/bitnami/bitnami-ssl.conf"
+  Include "/opt/bitnami/conf/httpd-prefix.conf"
+
+  //       105.245.116.231/32
+
