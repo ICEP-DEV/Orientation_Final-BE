@@ -1,18 +1,18 @@
 //DB CRDS
-const USERNAME = "root";
-const PASSWORD = ""
-const DATABASE_HOSTNAME = "localhost";
+const USERNAME = "shiko_admin";
+const PASSWORD = "shiko3093Shiko"
+const DATABASE_HOSTNAME = "database-1.cbrfev2wkv5c.eu-west-1.rds.amazonaws.com";
 //API PORTS
 const HOSTNAME = "mediahostseverip"
 const SOCKETIO_PORT = process.env.PORT || 2000;
-const GRAPH_PORT = process.env.PORT || 4242;
-const APP_PORT = process.env.PORT || 4241;
+const GRAPH_PORT = process.env.PORT || 4240;
+const APP_PORT = process.env.PORT || 4243;
 
 
 function DATABASE()
 { 
-    if(DATABASE_HOSTNAME == 'localhost')
-        return "localhost"
+    if(DATABASE_HOSTNAME == 'database-1.cbrfev2wkv5c.eu-west-1.rds.amazonaws.com')
+        return "database-1.cbrfev2wkv5c.eu-west-1.rds.amazonaws.com"
     else
         return "hosted"
 
