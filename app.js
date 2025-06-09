@@ -25,7 +25,7 @@ app.use(function (req, res, next) {
     res.setHeader('Access-Control-Allow-Credentials', true);
     next();
 });
-
+ 
 const sslServer = https.createServer({
     key: fs.readFileSync(path.join(__dirname, 'cert', 'key.pem')),
     cert: fs.readFileSync(path.join(__dirname, 'cert', 'cert.pem')),
